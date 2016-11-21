@@ -1,0 +1,36 @@
+{
+  "name": "Blind",
+  "description": "Server",
+  "main": "index.html",
+  "authors": [
+    "Raul"
+  ],
+  "license": "Apache",
+  "keywords": [
+    "gg"
+  ],
+  "homepage": "https://github.com/raullorenzo",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "",
+    "angular-md5": "",
+    "angular-route": "",
+    "angular-ui-router": "",
+    "angular-material": "",
+    "animate.css": "^3.5.1",
+    "bootstrap": "",
+    "jquery": "",
+    "ngstorage":"",
+    "font-awesome": "~4.6.1",
+    "sweetalert2": "",
+    "text-encoding": ""
+  }
+}

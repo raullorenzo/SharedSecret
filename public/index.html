@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="blind">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Secreto Compartido</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-jsbn-big-integer/big-integer.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/js-sha256/build/sha256.min.js"></script>
+    <script src="bower_components/decimal.js/decimal.min.js"></script>
+
+    <!-- Bootstrap latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Bootstrap optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-controller="singController">
+    <div>
+        <div class="div4">
+            <div class="container">
+                <h1 class="grande" style="margin-left: -4%;" id="sharedsecret">Secreto Compartido</h1>
+                <div>
+                   <br>
+                    <br><br>
+                    <br>
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                <form name="myForm">
+                                    <!-- <p>{{ message }}</p> -->
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg text-center" placeholder="Introduce la palabra secreta"
+                                               ng-model="secreto" required>
+                                        <br>
+                                        <input type="number" class="form-control input-lg text-center"
+                                               placeholder="Nº de contraseñas" ng-model="n" required>
+                                        <br>
+                                        <input type="number" class="form-control input-lg text-center"
+                                               placeholder="Nº de contraseñas mínimas necesarias" ng-model="t" required>
+                                    </div>
+                                    <button style="margin-left: -4%;" type="submit" class="btn btn-success btn-lg" ng-click="registrar()"
+                                            ng-disabled="myForm.$invalid || t == 1 || n == 1 || t > n">Crear claves
+                                    </button>
+                                    
+                                </form>
+                            </div>
+                            <br>
+                            
+
+                            <div ng-repeat="share in shares" style="margin-left: -4%;">
+                                <p style="padding: 10px;" class="bg-primary">Clave Nª: {{ $index + 1 }}</p>
+                                <p style="word-wrap: break-word; padding: 10px;" class="bg-success">{{share}}</p>
+                            </div>
+                            <a ng-show="verificar" class="btn btn-primary btn-lg" style="margin-left: -4%;" href="recuperar.html" target="nueva">Recuperar Secreto</a>
+                            <!-- <div class="col-sm-6">
+                                <table class="table table-striped" style='table-layout:fixed'>
+                                    <tr class="info">
+                                        <td>Nº share</td>
+                                        <td></td>
+                                        <td> Shares</td>
+                                    </tr>
+                                    <tr ng-repeat="share in shares">
+                                        <td>{{ $index + 1 }}</td>
+                                        
+                                        <td class="estilo">{{share}}</td>
+                                    </tr>
+                                </table>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Our Angular App -->
+    <script src="controllers.js"></script>
+    <script src="routes.js"></script>
+    <script src="secrets.js"></script>
+</body>
+</html>
