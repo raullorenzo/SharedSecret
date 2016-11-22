@@ -49,19 +49,22 @@
                                         <input type="number" class="form-control input-lg text-center"
                                                placeholder="Nº de contraseñas mínimas necesarias" ng-model="t" required>
                                     </div>
+                                    <br>
                                     <button style="margin-left: -4%;" type="submit" class="btn btn-success btn-lg" ng-click="registrar()"
-                                            ng-disabled="myForm.$invalid || t == 1 || n == 1 || t > n">Crear claves
+                                            ng-disabled="myForm.$invalid || t == 1 || n == 1 || t > n">Generar claves
                                     </button>
-                                    
+                                    <br>
+                                    <br>
                                 </form>
                             </div>
                             <br>
                             
 
-                            <div ng-repeat="share in shares" style="margin-left: -4%;">
+                            <div ng-repeat="share in shares" style="margin-left: -4%; margin-right: 4%;">
                                 <p style="padding: 10px;" class="bg-primary">Clave Nª: {{ $index + 1 }}</p>
                                 <p style="word-wrap: break-word; padding: 10px;" class="bg-success">{{share}}</p>
                             </div>
+                            <br>
                             <a ng-show="verificar" class="btn btn-primary btn-lg" style="margin-left: -4%;" href="recuperar.html" target="nueva">Recuperar Secreto</a>
                             <!-- <div class="col-sm-6">
                                 <table class="table table-striped" style='table-layout:fixed'>
